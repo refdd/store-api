@@ -41,11 +41,11 @@ app.use(cookieParser());
 
 // Mount all routes under a single handler
 app.use("/auth", authRoutes);
-app.use("/api/products", productsRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/coupons", couponsRoutes);
-app.use("/api/payments", paymentRoutes);
-app.use("/api/analytics", analyticsRoutes);
+app.use("/products", productsRoutes);
+app.use("/cart", cartRoutes);
+app.use("/coupons", couponsRoutes);
+app.use("/payments", paymentRoutes);
+app.use("/analytics", analyticsRoutes);
 // Default route for testing API health
 app.get("/", (req, res) => {
   res.json({ message: "API is running" });
