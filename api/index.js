@@ -15,7 +15,10 @@ connectDB();
 // Configure CORS properly
 app.use(
   cors({
-    origin: "*", // Allow all origins
+    origin: [
+      "http://localhost:5173",
+      "https://store-api-three-iota.vercel.app",
+    ], // Allow all origins
     credentials: true,
     methods: "*",
     allowedHeaders: "*",
