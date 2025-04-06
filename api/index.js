@@ -21,6 +21,7 @@ app.use(
         "http://localhost:5173",
         "https://store-api-three-iota.vercel.app",
         "https://store-frontend-drab.vercel.app/",
+        "https://store-frontend-rdd8zpd24-refdds-projects.vercel.app", // <-- Add this line
       ];
       // Allow requests with no origin (like mobile apps, curl requests, Postman)
       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
