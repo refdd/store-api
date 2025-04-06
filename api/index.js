@@ -13,15 +13,24 @@ const app = express();
 // Database Connection
 connectDB();
 // Configure CORS properly
+// Configure CORS properly
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://store-api-three-iota.vercel.app",
-    ], // Allow all origins
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://store-api-three-iota.vercel.app",
+      ];
+      // Allow requests with no origin (like mobile apps, curl requests, Postman)
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
-    methods: "*",
-    allowedHeaders: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
 
