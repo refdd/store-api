@@ -39,6 +39,7 @@ app.use(
 // Use middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "10mb" })); // allows you to parse the body of the request
 app.use(cookieParser());
 
 // Mount all routes under a single handler
